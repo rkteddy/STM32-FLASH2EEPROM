@@ -41,3 +41,16 @@ void STMFLASH_Write(u16 WriteAddr,u16 *pBuffer,u16 NumToWrite)
 		// 上锁	
 		FLASH_Lock();
 }
+
+/*
+ * 读取数据为字节类型
+ * 将EEEPROM的1K字节读出来
+ */
+void STMFLASH_Read_Backup(void)
+{
+		u16 t;
+		for(t = 0; t < STMFLASH_SIZE; t++) 
+		{
+				*(STMFLASH_BUFF+t) = *(u16*)(FLASH_PAGE255_ADDR+t*2);                
+		}
+}
