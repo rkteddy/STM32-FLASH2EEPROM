@@ -1,5 +1,6 @@
 #include "eeprom.h"
 #include "stm32f10x.h"
+#include "stm32f10x_flash.h"
 
 void delay_us(u32 n)
 {
@@ -53,4 +54,5 @@ void STMFLASH_Read_Backup(void)
 		{
 				*(STMFLASH_BUFF+t) = *(u16*)(FLASH_PAGE255_ADDR+t*2);                
 		}
+}
 }
